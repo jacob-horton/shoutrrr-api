@@ -62,6 +62,7 @@ func postNotification(c *gin.Context) {
 	}
 
 	url := fmt.Sprintf("discord://%s@%s", os.Getenv("DISCORD_TOKEN"), os.Getenv("DISCORD_WEBHOOK_ID"))
+	fmt.Println(os.Getenv("DISCORD_TOKEN"))
 	sender, err := shoutrrr.CreateSender(url)
 	if err != nil {
 		c.String(http.StatusInternalServerError, "Error creating sender")
