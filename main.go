@@ -20,7 +20,6 @@ type Notification struct {
 }
 
 func getToken(c *gin.Context) (string, error) {
-	// TODO: error handling
 	reqToken := c.GetHeader("Authorization")
 	if len(reqToken) == 0 {
 		return "", errors.New("No key provided in Authorization header")
@@ -31,14 +30,12 @@ func getToken(c *gin.Context) (string, error) {
 }
 
 func verifyToken(c *gin.Context) (bool, error) {
-	// TODO: error handling
 	token, err := getToken(c)
 	if err != nil {
 		return false, err
 	}
 
 	keys := strings.Split(os.Getenv("KEYS"), ",")
-
 	return slices.Contains(keys, token), nil
 }
 
