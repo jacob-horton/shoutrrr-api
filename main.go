@@ -73,7 +73,6 @@ func postNotification(c *gin.Context) {
 		return
 	}
 
-	// Add the new album to the slice.
 	c.String(http.StatusOK, "Successfully sent notification")
 }
 
